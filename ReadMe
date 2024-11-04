@@ -1,1 +1,38 @@
 //To be done
+
+Game: 2 player pvp Text game (maybe an ai)
+
+
+Fighters will have random(?) stats
+Stats:
+Strength (0-10)
+	HP (1-50)
+Damage system
+Roll for stats (max 3 times?) 
+Reroll 
+
+Turn system (random for who starts)
+
+
+Classes: Player,  Fighter selection (3 choices), playerAI(?)
+
+Draft: 
+-> Both players choose one of three fighters (unless ai maybe??)
+-> Turn will be decided
+-> Game begins
+	-> player 1 then player 2 loop until hp=0
+-> Players can chose to attack or defend 
+	- defense 0-10 = no block
+	- 11-19 = damage reduction
+	- 20 = full block
+
+
+Addons
+Give each fighter a fighter specific boost
+
+Things we have to do:
+AI player
+Fighter stats randomizing
+Turns system
+
+
