@@ -84,3 +84,4 @@ using namespace std;
     
 	return turn;	
 }
+//std::cout << "Damage: " << fighters[fighterIndex][2] << "\n"; 
