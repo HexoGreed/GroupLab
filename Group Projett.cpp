@@ -9,18 +9,19 @@
 #include <iostream>
 #include <iomanip>
 #include "GameLoop.h"
+#include "Fighter.h"
 using namespace std;
 
 int main() {
+	Fighter PickableFighters;
 	cout << "Hello! Welcome to Fighty Fight Game! Please choose your Fighter by entering 1, 2, or 3" << endl; // prints !!!Hello World!!!
 	
 	
 	cout << "╔════════════════════════════════════╗" << endl;
-	cout << "║" << setw(13) << "Fighter 1 " << setw(20) << "Insert stats here" << setw(6) << "║" << endl; //"fighter # " = 10 chars
-	cout << "║" << setw(13) << "Fighter 2 " << setw(20) << "Insert stats here" << setw(6) << "║" <<endl;
-	cout << "║" << setw(13) << "Fighter 3 " << setw(20) << "Insert stats here" << setw(6) << "║" << endl;
+	cout << "║\n"; PickableFighters.checkFighterStats();
+	cout << "║";
 	cout << "╚════════════════════════════════════╝" << endl;
-	// Needs stat randomizer
+	// its shows up weird dont worry about it;
 
 	cout << endl; 
 
