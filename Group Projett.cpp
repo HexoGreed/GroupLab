@@ -27,6 +27,16 @@ int main() {
 
 	cout << endl; 
 
+	//this is for the reroll thing;
+	cout << "do you wish to reroll? Y OR N\n";
+	char choice;
+	cin >> choice;
+	if (choice == 'Y') {
+		PickableFighters.ReRoll(0);
+		PickableFighters.ReRoll(1);
+		PickableFighters.ReRoll(2);
+	}
+	//end of reroll and start of battle, we can add a while loop if we want them t be able to reroll
 	cout << setw(31) << "║ Game Start! ║"  << endl; //setw minimum 17
 	cout << setw(49) << "┌──────────┐" << endl;
 	cout << setw(29) << "│ Round 1! │" << endl;
