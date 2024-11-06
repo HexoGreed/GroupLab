@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include <iomanip>
-#include "GameLoop.cpp"
+#include "GameLoop.h"
 using namespace std;
 
 int main() {
