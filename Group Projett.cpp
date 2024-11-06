@@ -8,7 +8,7 @@
 
 #include <iostream>
 #include <iomanip>
-#include "Kazz.cpp"
+#include "GameLoop.cpp"
 using namespace std;
 
 int main() {
