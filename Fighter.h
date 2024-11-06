@@ -19,8 +19,8 @@ public:
         fighters = vector<vector<int>>(3, vector<int>(2));
         //3 fighters 2 states each;
 
-
-        srand(time(0)); //seeding the randomness so its random every time
+        //srand(time(0)); //seeding the randomness so its random every time
+        //DO NOT DO THIS ^^^^, put the srand(time(0)) in the main so it only has to seed the randomness once;
 
 
         for (int i = 0; i < fighters.size(); i++) {
