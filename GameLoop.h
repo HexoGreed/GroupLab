@@ -15,6 +15,7 @@ using namespace std;
     int compHealth = 10;
     int damage = 2;
     bool turn = 1;
+    int THINGIE = 0;	
     // Testing code //
 
    while (playerHealth > 0 && compHealth > 0) {
@@ -91,6 +92,4 @@ using namespace std;
 	return turn;	
 }
     
-	return turn;	
-}
 //std::cout << "Damage: " << fighters[fighterIndex][2] << "\n"; 
