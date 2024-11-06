@@ -14,6 +14,8 @@ using namespace std;
 
 int main() {
 	Fighter PickableFighters;
+	//initialies a fighter class thing
+		
 	cout << "Hello! Welcome to Fighty Fight Game! Please choose your Fighter by entering 1, 2, or 3" << endl; // prints !!!Hello World!!!
 	
 	
