@@ -1,8 +1,11 @@
+#pragma once
+//makes sure its only included once;
 #include <iostream>
 #include <random>
 #include <vector>
-#include <cstdlib>
-#include <ctime>
+#include <utility>
+#include "PlayerClass.h"
+
 using namespace std;
 
 class Fighter {
@@ -19,8 +22,8 @@ public:
         fighters = vector<vector<int>>(3, vector<int>(2));
         //3 fighters 2 states each;
 
-        //srand(time(0)); //seeding the randomness so its random every time
-        //DO NOT DO THIS ^^^^, put the srand(time(0)) in the main so it only has to seed the randomness once;
+
+        srand(time(0)); //seeding the randomness so its random every time
 
 
         for (int i = 0; i < fighters.size(); i++) {
@@ -45,6 +48,13 @@ public:
         }
     }//this just outputs the stats
 
+
+
+
+    
+   
+    
+
     void ReRoll(int fighterIndex) {
         if (fighterIndex < 0 || fighterIndex >= fighters.size()) {
             std::cout << "Invalid Index";
@@ -63,6 +73,28 @@ public:
         std::cout << "New stats for Fighter " << fighterIndex + 1 << ":\n";
         std::cout << "HP: " << fighters[fighterIndex][0] << "\n";
         std::cout << "Strength: " << fighters[fighterIndex][1] << "\n";
+    }
+
+
+    //PAIR RETURNS TWO INTS, cps lck
+    std::pair<int, int> pickFighter() {
+        cout << "Please select a fighter by picking 1, 2, or 3\n";
+        int fighterChoice;
+        cin >> fighterChoice;
+
+        while (fighterChoice < 1 || fighterChoice > 3) { // Ensure valid input
+            cout << "Invalid choice. Please select a valid fighter number (1, 2, or 3): ";
+            cin >> fighterChoice;
+        }
+        fighterChoice -= 1;
+        //vectors start from 0-2; making sue the input is actually valid
+
+        int selectedHP = fighters[fighterChoice][0];
+        int selectedAttack = fighters[fighterChoice][1];
+
+        // Return the chosen fighter's stats
+        return std::make_pair(selectedHP, selectedAttack);
+        //Constructs a pair object with its first element set to x and its second element set to y.
     }
 
 };
