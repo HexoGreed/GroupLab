@@ -13,8 +13,11 @@
 using namespace std;
 
 int main() {
+	//Initializes both pickable fighter and the player
 	Fighter PickableFighters;
-	//initialies a fighter class thing
+	PLayer PlayerFighter;
+	//
+
 		
 	cout << "Hello! Welcome to Fighty Fight Game! Please choose your Fighter by entering 1, 2, or 3" << endl; // prints !!!Hello World!!!
 	
@@ -35,12 +38,25 @@ int main() {
 		PickableFighters.ReRoll(0);
 		PickableFighters.ReRoll(1);
 		PickableFighters.ReRoll(2);
+
 	}
+
+	//THIS is all for making the player fighter =  the picked fighter;
+	std::pair<int, int> chosenFighter = PickableFighters.pickFighter();
+	PlayerFighter.setPlayerStats(chosenFighter);
+	PlayerFighter.displayPlayerStats();
+	//cout << "\n\n\n";
+	
+
+
 	//end of reroll and start of battle, we can add a while loop if we want them t be able to reroll
 	cout << setw(31) << "║ Game Start! ║"  << endl; //setw minimum 17
 	cout << setw(49) << "┌──────────┐" << endl;
 	cout << setw(29) << "│ Round 1! │" << endl;
 	cout << setw(49) << "└──────────┘" << endl;
+
+
+
 
 	for (int compWins = 0, playerWins = 0, i = 1; compWins <2 && playerWins <2; i++) {		
 		if (game()){
