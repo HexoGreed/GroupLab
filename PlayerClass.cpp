@@ -1,35 +1,34 @@
-using namespace std;
+#pragma once
+//makes sure its only included once
 #include "Fighter.h"
-class PLayer {
+using namespace std;
 
+class PLayer {
+private:
 	int hp;
 	int attack;
 
-
-	//pick fighter 1, 2, or 3 blah blah blah.
-	int fighterChoice;
-
-	void pick_Fighter() {
-		//fill this in later when we either add specific fighters or stats
+public:
+	void setPlayerStats(const std::pair<int, int>& fighterStats) {
+		//the and is a refrence because thats how it works, (I was bashing my head against a wall :3 )
+		hp = fighterStats.first;
+		attack = fighterStats.second;
+	}
+    
+	void displayPlayerStats() {
+		cout << "Player Stats:\n";
+		cout << "HP: " << hp << "\n";
+		cout << "Attack: " << attack << "\n";
 	}
 
-	void taketurn(){
-		//sees if the player is attacking or defending this turn.
-
+	void updatePlayerHP(int enemyAttack) {
+		hp -= enemyAttack;
 	}
+	
 
 
 
 };
 
-/*int main() {
-	srand(time(0)); // Seed once at the start of the program
 
-	Fighter PlayerFighter;
-
-	PlayerFighter.checkFighterStats();
-
-	PlayerFighter.ReRoll(2);
-}
-*/
 
