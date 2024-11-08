@@ -4,6 +4,7 @@
 #include <random>
 #include <vector>
 #include <utility>
+//this is needed for the pair return functon
 #include "PlayerClass.h"
 
 using namespace std;
