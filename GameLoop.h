@@ -7,19 +7,19 @@
 //============================================================================
 
 #include <iostream>
+#include <iomanip>
+#include "NewFighter.h"
 using namespace std;
 
- bool game() { 
+bool game(int selectedHP, int selectedAttack) { 
     // Testing code //
-    int playerHealth = 10;
     int compHealth = 10;
-    int damage = 2;
     bool turn = 1;
-    int THINGIE = 0;	
+    int THINGIE = 0;
     // Testing code //
 
-   while (playerHealth > 0 && compHealth > 0) {
-    	cout << "╔════════════════════════════════════╗" << endl;
+    while (selectedHP > 0 && compHealth > 0) {
+       	cout << "╔════════════════════════════════════╗" << endl;
 
     	while (THINGIE < 2){
 			if(turn){
@@ -38,7 +38,7 @@ using namespace std;
 					cin >> action;
 				}
 				if (action == 1){
-					cout << "║" << "You attacked " << "[OTHER FIGHTER]" << " for " << damage << " points!"  << setw(2) << "║" << endl;
+					cout << "║" << "You attacked " << "[OTHER FIGHTER]" << " for " << selectedAttack << " points!"  << setw(2) << "║" << endl;
 
 				}
 				else {
@@ -52,20 +52,20 @@ using namespace std;
 				cout << "║" << setw(39) << "║" << endl;
 				int compAction = rand() % 9 + 1;
 				//cout << "compAction: " << compAction << endl; //DEBUG
-				if(compHealth <= damage*2){
+				if(compHealth <= selectedAttack*2){
 					//cout << "((LOW  HEALTH))" << endl;       //DEBUG
 					if(compAction <= 6){
 						cout << "[DEFENDING]" << endl;
 					}
 					else {  // Theres some copy-pasted code here that 100% should be fixed at somepoint
 						cout << "[ATTACKING]" << endl;
-						cout << "║" << setw(20) << "They attacked you" << " For " << damage << " points!" << setw(5) << "║" << endl;
+						cout << "║" << setw(20) << "They attacked you" << " For " << selectedAttack << " points!" << setw(5) << "║" << endl;
 					}
 				} else {
 					//cout << "((HEALTHY))" << endl;          //DEBUG
 					if (compAction <= 8){
 						cout << "[ATTACKING]" << endl;
-						cout << "║" << setw(20) << "They attacked you" << " For " << damage << " points!" << setw(5) << "║" << endl;
+						cout << "║" << setw(20) << "They attacked you" << " For " << selectedAttack << " points!" << setw(5) << "║" << endl;
 
 					}
 					else {
@@ -80,10 +80,10 @@ using namespace std;
 
 			turn = !turn;
 			}
-    	compHealth = compHealth - damage;
-    	playerHealth = playerHealth - damage;
+    	compHealth = compHealth - selectedAttack;
+    	selectedHP = selectedHP - selectedAttack;
     	cout << "║" << setw(15) << "They have " <<  setw(2) << compHealth << " health left." << setw(9) << "║" << endl;
-    	cout << "║" << setw(15) << "You have " << setw(2) << playerHealth << " health left." << setw(9) << "║" << endl;
+    	cout << "║" << setw(15) << "You have " << setw(2) << selectedHP << " health left." << setw(9) << "║" << endl;
     	THINGIE = 0;
         cout << "╚════════════════════════════════════╝" << endl;
 
@@ -91,5 +91,5 @@ using namespace std;
     
 	return turn;	
 }
-    
+
 //std::cout << "Damage: " << fighters[fighterIndex][2] << "\n"; 
