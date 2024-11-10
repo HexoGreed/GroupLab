@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+class Character {
+public:
+	int hp; // Health points, set this up in the constructor
+	int damage;
+	Character(int intialHealth) {
+		hp = intialHealth;
+		//Set the initial health here
+	}
+	void takeDamage(int damageTaken) {
+		hp -= damageTaken;
+		// Subtract damage from health here
+		// Make sure health doesn't drop below zero
+	}
+	void displayHealth() {
+		cout << "Current health: " << hp << endl;
+	}
+};
+
+int main() {
+	srand(time(0));// Initialize random seed
+
+	Character hero(100); // Create a character with initial health 100
+
+	// Generate a random damage amount
+	int randomDamage = rand() % 16 + 5; // Generate a random damage value between 5 and 20
+
+	cout << "Hero takes " << randomDamage << "damage." << endl;
+	hero.takeDamage(randomDamage);//Apply damage to the hero
+
+	//Display the hero's health after taking damage
+	hero.displayHealth();
+
+	return 0;
+}
