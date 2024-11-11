@@ -1,9 +1,9 @@
 //============================================================================
-// Name        : Group.cpp
+// Name        : Group Projett.cpp
 // Author      : Kazz/Hamza/Maribelle/Prem
-// Version     : 24/11/10
+// Version     : 24/11/11
 // Copyright   : >:o
-// Description : Fighty Fight Game, Group Project
+// Description : Fighty Fight Game Main, Group Project
 //============================================================================
 
 #include <iostream>
@@ -19,22 +19,15 @@ int fighterChoice;
 Fighters PickableFighters;
 
 int main() {
-	cout << "Hello! Welcome to Fighty Fight Game! Please choose your Fighter by entering 1, 2, or 3" << endl; // prints !!!Hello World!!!
+	cout << "Hello! Welcome to Fighty Fight Game! Please choose your Fighter by entering 1, 2, or 3" << endl; 
 	
-	/*
-	cout << "╔════════════════════════════════════╗" << endl;
-	cout << "║" << setw(13) << "Fighter 1 " << setw(20) << "Insert stats here" << setw(6) << "║" << endl; //"fighter # " = 10 chars
-	cout << "║" << setw(13) << "Fighter 2 " << setw(20) << "Insert stats here" << setw(6) << "║" <<endl;
-	cout << "║" << setw(13) << "Fighter 3 " << setw(20) << "Insert stats here" << setw(6) << "║" << endl;
-	cout << "╚════════════════════════════════════╝" << endl;
-	*/
 	PickableFighters.checkFighterStats();
 	cout << endl;
 
 	cout << "do you wish to reroll? Y OR N\n";
 	char choice;
 	cin >> choice;
-	if (choice == 'Y') { //fix formatting when hitting yes, and also make yes not case sensitive.
+	if (choice == 'Y' || 'y') { 
 		PickableFighters.ReRollAll();
 
 		PickableFighters.checkFighterStats();
@@ -42,9 +35,9 @@ int main() {
 	}
 	
 	Fighter& fighter = PickableFighters.pickFighter();
+	Fighter robot; 
 
-
-
+	fighter.chooseHat();
 
 	cout << endl; 
 
@@ -54,12 +47,11 @@ int main() {
 	cout << setw(49) << "└──────────┘" << endl;
 
 	for (int compWins = 0, playerWins = 0, i = 1; compWins <2 && playerWins <2; i++) {		
-		if (game(fighter.HP(), fighter.Attack())){
+		if (game(fighter, robot)){
 			cout << "You lost all your health! You lost!" << endl;
 			compWins++;
 		}
 		else {
-		
 			cout << "They lost all their health! You win!" << endl;
 			playerWins++;
 		}
@@ -76,8 +68,6 @@ int main() {
 			cout << setw(49) << "└──────────┘" << endl;
 		}
 	}
-
-	//Needs enemy fighter
 
 	cout << "Thanks for playing our game!" << endl;
 	return 0;
