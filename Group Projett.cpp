@@ -27,7 +27,8 @@ int main() {
 	cout << "do you wish to reroll? Y OR N\n";
 	char choice;
 	cin >> choice;
-	if (choice == 'Y' || 'y') { 
+	choice = tolower(choice);
+	if (choice == 'y') {
 		PickableFighters.ReRollAll();
 
 		PickableFighters.checkFighterStats();
@@ -48,12 +49,14 @@ int main() {
 
 	for (int compWins = 0, playerWins = 0, i = 1; compWins <2 && playerWins <2; i++) {		
 		if (game(fighter, robot)){
-			cout << "You lost all your health! You lost!" << endl;
-			compWins++;
-		}
-		else {
-			cout << "They lost all their health! You win!" << endl;
-			playerWins++;
+			if (robot.HP() == 0) {
+				cout << "They lost all their health! You win!" << endl;
+				playerWins++;
+			}
+			else {
+				cout << "You lost all your health! You lost!" << endl;
+				compWins++;
+			}
 		}
 		if (compWins == 2){
 			cout << "[OTHER FIGHTER]" << " Won the tournament!" << endl;
