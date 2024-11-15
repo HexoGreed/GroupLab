@@ -63,7 +63,7 @@ int main() {
 				cout << robot.name() << " won the tournament!" << endl;
 			}
 			else if(playerWins == 2){
-				/*player.startHat();*/ cout << "You won the tournament!" << endl;
+				cout << "You won the tournament!" << endl;
 			}
 			else {
 				cout << endl;
