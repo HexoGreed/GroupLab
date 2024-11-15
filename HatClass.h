@@ -5,6 +5,7 @@
 // Copyright   : >:o
 // Description : Hat Class
 //============================================================================
+#pragma once
 
 #include <iostream>
 #include <string>
