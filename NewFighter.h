@@ -13,7 +13,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <iomanip>
-#include "HatClass.cpp"
+#include "HatClass.h"
 using namespace std;
 
 class Fighter;
