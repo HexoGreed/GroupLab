@@ -1,7 +1,7 @@
 //============================================================================
 // Name        : GameLoop.h
 // Author      : Kazz
-// Version     : 24/11/11
+// Version     : 24/11/15
 // Copyright   : >:o
 // Description : game loop function stuff
 //============================================================================
@@ -24,20 +24,24 @@ int getPlayerAction(Fighter& player) {
 		cout << "║" << setw(34) << "That's not an option, pick again" << setw(5) << "║" << endl;
 		cin >> action;
 	}
-
 	return action == 'A' || action == 'a' ? 1 : 2;
 }
 
-bool game(Fighter& player, Fighter& robot) {
+void displayDefend(Fighter& fighter) {
+	cout << "║" << setw(12) << fighter.name() << " defended themselves" << setw(7) << "║" << endl;
+}
 
-		
+void displayAttack (int points) {
+	cout << "║" << setw(19) << "They attacked you" << " for " << setw(2) << points << " points!" << setw(5) << "║" << endl;
+}
+
+bool game(Fighter& player, Fighter& robot) {
 	int round = 0;
-    bool turn = 1;
+    bool turn = rand()%2;
 
 	player.Heal();
 	robot.Heal();
-
-    while (player.HP() > 0 && robot.HP() > 0) {
+     while (player.HP() > 0 && robot.HP() > 0) {
 		int selectedAttack = player.Attack();
 		int compAttack = robot.Attack();
 		bool playerDef;
@@ -64,18 +68,18 @@ bool game(Fighter& player, Fighter& robot) {
 				int compAction = rand() % 9 + 1;
 				if(robot.HP() <= selectedAttack*2){
 					if(compAction <= 6){
-						cout << "║" << setw(12) << robot.name() << " defended themselves" << setw(7) << "║" << endl;
+						displayDefend(robot);
 						compDef = 1;
 					}
 					else {
-						cout << "║" << setw(19) << "They attacked you" << " for " << setw(2) << compAttack << " points!" << setw(5) << "║" << endl;
+						displayAttack(compAttack);
 					}
 				} else {
 					if (compAction <= 8){
-						cout << "║" << setw(19) << "They attacked you" << " for " << setw(2) << compAttack << " points!" << setw(5) << "║" << endl;
+						displayAttack(compAttack);
 					}
 					else {
-						cout << "║" << setw(12) << robot.name() << " defended themselves" << setw(7) << "║" <<endl;
+						displayDefend(robot);
 						compDef = 1;
 					}
 				}
@@ -98,6 +102,6 @@ bool game(Fighter& player, Fighter& robot) {
     	round = 0;
         cout << "╚════════════════════════════════════╝" << endl;
     }
-	return turn;	
+	return player.HP() > 0;	
 }
 
