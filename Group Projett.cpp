@@ -1,7 +1,7 @@
 //============================================================================
-// Name        : Group Projett.cpp
+// Name        : Group.cpp
 // Author      : Kazz/Hamza/Maribelle/Prem
-// Version     : 24/11/11
+// Version     : 24/11/15
 // Copyright   : >:o
 // Description : Fighty Fight Game Main, Group Project
 //============================================================================
@@ -14,7 +14,6 @@
 #include "NewFighter.h"
 using namespace std;
 
-// TEMP CODE
 int fighterChoice;
 Fighters PickableFighters;
 
@@ -27,8 +26,7 @@ int main() {
 	cout << "do you wish to reroll? Y OR N\n";
 	char choice;
 	cin >> choice;
-	choice = tolower(choice);
-	if (choice == 'y') {
+	if (choice == 'Y' || choice == 'y') { 
 		PickableFighters.ReRollAll();
 
 		PickableFighters.checkFighterStats();
@@ -41,8 +39,12 @@ int main() {
 	fighter.chooseHat();
 
 	cout << endl; 
-
+	
+	
 	cout << setw(31) << "║ Game Start! ║"  << endl; //setw minimum 17
+	cout << endl;
+	cout << setw(26)<< "You will be fighting " << robot.name() << "!" << endl;
+	cout << endl;
 	cout << setw(49) << "┌──────────┐" << endl;
 	cout << setw(29) << "│ Round 1! │" << endl;
 	cout << setw(49) << "└──────────┘" << endl;
@@ -57,21 +59,20 @@ int main() {
 				cout << "You lost all your health! You lost!" << endl;
 				compWins++;
 			}
-		}
-		if (compWins == 2){
-			cout << "[OTHER FIGHTER]" << " Won the tournament!" << endl;
-		}
-		else if(playerWins == 2){
-			cout << "You won the tournament!" << endl;
-		}
-		else {
-			cout << endl;
-			cout << setw(49) << "┌──────────┐" << endl;
-			cout << setw(23) << "│ Round " << i+1 << "! │" << endl;
-			cout << setw(49) << "└──────────┘" << endl;
+			if (compWins == 2){
+				cout << robot.name() << " won the tournament!" << endl;
+			}
+			else if(playerWins == 2){
+				/*player.startHat();*/ cout << "You won the tournament!" << endl;
+			}
+			else {
+				cout << endl;
+				cout << setw(49) << "┌──────────┐" << endl;
+				cout << setw(23) << "│ Round " << i+1 << "! │" << endl;
+				cout << setw(49) << "└──────────┘" << endl;
+			}
 		}
 	}
-
 	cout << "Thanks for playing our game!" << endl;
 	return 0;
 }
