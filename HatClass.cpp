@@ -1,3 +1,11 @@
+//============================================================================
+// Name        : Group.cpp
+// Author      : Maribelle/Kazz
+// Version     : 24/11/15
+// Copyright   : >:o
+// Description : Hat Class
+//============================================================================
+
 #include <iostream>
 #include <string>
 //#include all files at the end
@@ -7,6 +15,7 @@ class Hat {
 
 private:
     int HatChoice;
+   // static char names[10][15];
 
 public:
     Hat();
@@ -23,36 +32,46 @@ Hat::Hat(){
 Hat::~Hat(){
 }
 
-void Hat::chooseHat() {
+void Hat::chooseHat() {    
+    cout << "Enter the number of the hat you want to wear:" << endl;
+  
+        cout << "1. Top Hat" << endl;
+		cout << "2. Viking Helmet" << endl;
+		cout << "3. Cowboy Hat" << endl; 
+        cout << "4. Baseball Cap" << endl; 
+        cout << "5. Party Hat" << endl; 
+        cout << "6. Chef Hat" << endl; 
+        HatChoice = 0;
+        
+        
+        
+        while(HatChoice < 1 || HatChoice > 6){
+            if (cin >> HatChoice) {
+                if (HatChoice == 1) {
+                    cout << "You chose the Top Hat!" << endl; 
+                } else if (HatChoice == 2) {
+                    cout << "You chose the Viking Helmet!" << endl;
+                } else if (HatChoice == 3) {
+                    cout << "You chose the Cowboy Hat!" << endl;
+                } else if (HatChoice == 4) {
+                    cout << "You chose the Baseball Cap!" << endl;
+                } else if (HatChoice == 5) {
+                    cout << "You chose the Party Hat!" << endl;
+                } else if (HatChoice == 6) {
+                    cout << "You chose the Chef Hat!" << endl;
+                }
+                else {
+                    cout << "Invalid choice, please enter 1, 2, or 3:" << endl;
+                } 
 
-	 //int HatChoice
-		//Prompts for user
-	    cout << "Enter the number of the hat you want to wear:" << endl;
-		cout << "1. Cowboy Hat" << endl;
-		cout << "2. Party Hat" << endl;
-		cout << "3. Chef Hat" << endl;
-		cout << "Enter your choice 1, 2, or 3: ";
-		cin >> HatChoice;
+            }
+            else {
+                cin.clear();
+                cin.ignore(256, '\n');
+                cout << "Invalid choice, please enter 1, 2, or 3:" << endl;
+            } 
+        }
 
-
-    cin.clear();
-    cin.ignore(256, '\n');
-    while (1){
-    	 // getline(cin, HatChoice);
-		if (HatChoice == 1) {
-			cout << "You chose the Cowboy Hat!" << endl;
-			break;
-		} else if (HatChoice == 2) {
-			cout << "You chose the Party Hat!" << endl;
-			break;
-		} else if (HatChoice == 3) {
-			cout << "You chose the Chef Hat!" << endl;
-			break;
-		} else {
-			cout << "Invalid choice, please enter 1, 2, or 3:" << endl;
-		}
-
-    }
 }
 
 void Hat::startHat() {
@@ -63,15 +82,7 @@ void Hat::endHat() {
     cout << "\033[0m";
 }
 
+
 int Hat::hatCode() {
-    if(HatChoice == 1){ //cowboy
-        return 33;
-    }
-    else if(HatChoice == 2){ //party
-        return 35;
-    }
-    else if (HatChoice == 3){ //chef
-        return 36;
-    }
-    return 0;
+   return 30+HatChoice;
 }
