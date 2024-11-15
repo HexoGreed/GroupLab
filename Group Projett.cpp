@@ -50,27 +50,26 @@ int main() {
 	cout << setw(49) << "└──────────┘" << endl;
 
 	for (int compWins = 0, playerWins = 0, i = 1; compWins <2 && playerWins <2; i++) {		
-		if (game(fighter, robot)){
-			if (robot.HP() == 0) {
-				cout << "They lost all their health! You win!" << endl;
-				playerWins++;
-			}
-			else {
-				cout << "You lost all your health! You lost!" << endl;
-				compWins++;
-			}
-			if (compWins == 2){
-				cout << robot.name() << " won the tournament!" << endl;
-			}
-			else if(playerWins == 2){
-				/*player.startHat();*/ cout << "You won the tournament!" << endl;
-			}
-			else {
-				cout << endl;
-				cout << setw(49) << "┌──────────┐" << endl;
-				cout << setw(23) << "│ Round " << i+1 << "! │" << endl;
-				cout << setw(49) << "└──────────┘" << endl;
-			}
+		game(fighter, robot);
+		if (robot.HP() == 0) {
+			cout << "They lost all their health! You win!" << endl;
+			playerWins++;
+		}
+		else {
+			cout << "You lost all your health! You lost!" << endl;
+			compWins++;
+		}
+		if (compWins == 2){
+			cout << robot.name() << " won the tournament!" << endl;
+		}
+		else if(playerWins == 2){
+			/*player.startHat();*/ cout << "You won the tournament!" << endl;
+		}
+		else {
+			cout << endl;
+			cout << setw(49) << "┌──────────┐" << endl;
+			cout << setw(23) << "│ Round " << i+1 << "! │" << endl;
+			cout << setw(49) << "└──────────┘" << endl;
 		}
 	}
 	cout << "Thanks for playing our game!" << endl;
