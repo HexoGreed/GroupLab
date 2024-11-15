@@ -1,38 +1,193 @@
-//To be done
+Group Lab Arena Fighter
+Shah Hamza, Janzen Maribelle, Kazz (Zoe Kacsmark), Patel Prem
+11/15/2024
+Project: 
+A Program that runs a game where the player can fight against a robot player
 
-Game: 2 player pvp Text game (maybe an ai)
+Classes: Fighters, Fighter, Hat
+
+Fighters:
+A collection of Fighters for player selection
+
+Data Members:
+std::vector<Fighter> fighters;
+	This is a list of fighters for player to choose from
+
+Member Functions:
+Fighters(int numFighters=3);
+Pre-conditions: 
+N/A
+Post-conditions:
+	Initializes Fighters object
+
+~Fighters();
+Pre-conditions: 
+N/A
+Post-conditions:
+	N/A
+
+void checkFighterStats();
+Pre-conditions: 
+	N/A
+Post-conditions:
+A selection of fighters will be displayed for player to choose from
+
+Fighter& pickFighter();
+Pre-conditions: 
+N/A
+Post-conditions:
+Returns fighter object selected by player
+
+void ReRoll(int fighterIndex);
+Pre-conditions: 
+N/A
+Post-conditions:
+	Regenerates stats for 1 fighter in the in the fighters vector
+
+void ReRollAll();
+Pre-conditions: 
+N/A
+Post-conditions:
+	Regenerates stats for all fighters in the in the fighters vector
+
+Fighter:
+A fighter containing hit points and attack stats to be used during the game 
+The fighter class inherits Hat class functionality
+
+Data Members:
+static char names[10][9];
+A list of names that can be used by any fighter object 
+
+int _startingHP;
+	The Hit Points generated for a fighter
+
+int _HP;
+	Fighters current Hit Points 
+
+int _Attack;
+Fighters generated attack value 
+
+int _name;
+	An index into the Fighters list to indicate their name
+
+Member Functions:
+Fighter();
+Pre-conditions: 
+N/A 
+Post-conditions:
+	Initializes fighter object
+
+~Fighter();
+Pre-conditions: 
+N/A
+Post-conditions:
+N/A
+
+void takeDamage(int damageTaken, bool defending);
+Pre-conditions: 
+Fighter object has been initialized
+Post-conditions:
+HP is adjusted by the amount of damage taken, offset by defense if enabled
+
+int Defend(int damage);
+Pre-conditions: 
+N/A
+Post-conditions:
+Returns adjusted damage with defense adjustment	
+
+void ReRoll();
+Pre-conditions: 
+	N/A
+Post-conditions:
+	Creates new stats for the fighter object
+
+void Heal();
+Pre-conditions: 
+	N/A
+Post-conditions:
+	Resets HP to the HP generated at the start of the game
+
+int HP();
+Pre-conditions: 
+	Fighter object has been initialized
+Post-conditions:
+	Returns current HP
+
+int Attack();
+Pre-conditions: 
+	Fighter object has been initialized
+Post-conditions:
+	Returns calculated attack damage
+
+int baseAttack();
+Pre-conditions: 
+	Fighter object has been initialized
+Post-conditions:
+	Returns attack statistic, without adjustment
+string name();
+Pre-conditions: 
+	Fighter object has been initialized
+Post-conditions:
+	Returns name of fighter
+
+Hat:
+	A visual element to help make the games interface more readable
+
+Data Members:
+int HatChoice;
+	The players hat selection, which maps to a color value
+
+Member Functions:
+Hat();
+Pre-conditions: 
+	N/A
+Post-conditions:
+N/A
+
+~Hat();
+Pre-conditions: 
+	N/A
+Post-conditions:
+N/A	
+
+int hatCode();
+Pre-conditions: 
+	A hat has been chosen via chooseHat();
+Post-conditions:
+Returns ANSI color value of players selected hat
+
+void chooseHat();
+Pre-conditions: 
+	N/A
+Post-conditions:
+	Users hat choice is saved
+
+void startHat();
+Pre-conditions: 
+	A hat has been chosen via chooseHat();
+Post-conditions:
+Prints the ANSI color code to change to output color to the selected hat’s color
+
+void endHat();
+Pre-conditions: 
+	N/A
+Post-conditions:
+	Prints the ANSI code to disable the color output
+
+Extra Functions:
+bool game(Fighter& player, Fighter& robot)
+Pre-conditions: 
+	Two fighter objects have been created
+Post-conditions:
+	An interactive game is played until at least one of the fighter objects reaches 0 hit points
+
+int getPlayerAction(Fighter& player)
+Pre-conditions: 
+	There is a initialized fighter object for the user
+Post-conditions:
+Displayed available actions for player and collects their choice
 
 
-Fighters will have random(?) stats
-Stats:
-Strength (0-10)
-	HP (1-50)
-Damage system
-Roll for stats (max 3 times?) 
-Reroll 
 
-Turn system (random for who starts)
-
-
-Classes: Player,  Fighter selection (3 choices), playerAI(?)
-
-Draft: 
--> Both players choose one of three fighters (unless ai maybe??)
--> Turn will be decided
--> Game begins
-	-> player 1 then player 2 loop until hp=0
--> Players can chose to attack or defend 
-	- defense 0-10 = no block
-	- 11-19 = damage reduction
-	- 20 = full block
-
-
-Addons
-Give each fighter a fighter specific boost
-
-Things we have to do:
-AI player
-Fighter stats randomizing
-Turns system
 
 
