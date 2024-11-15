@@ -15,7 +15,6 @@ class Hat {
 
 private:
     int HatChoice;
-   // static char names[10][15];
 
 public:
     Hat();
@@ -44,7 +43,6 @@ void Hat::chooseHat() {
         HatChoice = 0;
         
         
-        
         while(HatChoice < 1 || HatChoice > 6){
             if (cin >> HatChoice) {
                 if (HatChoice == 1) {
@@ -71,7 +69,6 @@ void Hat::chooseHat() {
                 cout << "Invalid choice, please enter 1, 2, or 3:" << endl;
             } 
         }
-
 }
 
 void Hat::startHat() {
